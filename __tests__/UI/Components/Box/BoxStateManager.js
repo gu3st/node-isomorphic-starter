@@ -1,5 +1,4 @@
 import BoxStateManager from '../../../../src/UI/Components/Box/BoxStateManager';
-import {is} from 'arc-lib';
 import connect from '../../../../__mocks__/connect';
 
 describe('BoxStateManager',()=>{

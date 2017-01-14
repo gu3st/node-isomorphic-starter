@@ -1,5 +1,6 @@
 import BoxStateManager from '../../../../src/UI/Components/Box/BoxStateManager';
 import connect from '../../../../__mocks__/connect';
+const is = require('arc-lib').is;
 
 describe('BoxStateManager',()=>{
     var TestStateManager = new BoxStateManager;
@@ -20,7 +21,8 @@ describe('BoxStateManager',()=>{
     });
     
     it('should accept a dispatch function and return an object of dispatch methods',()=>{
-        expect(is(TestStateManager.dispatch(()=>{}),true)).toEqual('Object');
+        var dispatchMethods = TestStateManager.dispatch(()=>{});
+        expect((dispatchMethods.updateMessage ? true : false)).toBe(true);
     });
 
     it('should call the dispatch function, when an update method is called',()=>{

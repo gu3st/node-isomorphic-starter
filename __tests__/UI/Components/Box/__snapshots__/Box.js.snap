@@ -1,0 +1,7 @@
+exports[`Box Component should match the Box component snapshot 1`] = `
+<div
+  className="_3c7_5"
+  onClick={[Function]}>
+  Hello World
+</div>
+`;

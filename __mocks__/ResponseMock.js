@@ -35,4 +35,5 @@ class ResponseMock{
         this.responseBody = undefined;
     }
 }
-module.exports = ResponseMock;
+
+export default ResponseMock;

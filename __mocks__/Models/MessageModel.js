@@ -36,4 +36,4 @@ class ExampleModel{
     }
 }
 
-module.exports = ExampleModel;
+export default ExampleModel;

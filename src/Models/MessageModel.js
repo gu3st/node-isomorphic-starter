@@ -1,4 +1,4 @@
-const is = require('arc-lib').is;
+import {is} from 'arc-lib';
 
 class MessageModel{
     constructor(){
@@ -28,4 +28,4 @@ class MessageModel{
     }
 }
 
-module.exports = MessageModel;
+export default MessageModel;

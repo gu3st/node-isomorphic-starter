@@ -1,9 +1,9 @@
-const HTTPServer = require('./Adapters/HTTPServer');
-const V1Controller = require('./Controllers/Controllers');
-const Config = require('./Config');
-const BodyParser = require('body-parser');
-const Express = require('express');
-const path = require('path');
+import HTTPServer from './Adapters/HTTPServer';
+import Controllers from './Controllers/Controllers';
+import Config from './Config';
+import BodyParser from 'body-parser';
+import Express from 'express';
+import path from 'path';
 
 /*
 NOTE: We do not write tests against our Main. Main is our application entry, and builds out our application.
@@ -71,7 +71,7 @@ class Main{
     }
 
     bindApplicationMiddleware(){
-        var Controller = new V1Controller;
+        var Controller = new Controllers;
         this.Server.catchRequest().use('/',Controller.getRouter());
         console.log('Application middleware bound...');
         return Promise.resolve(true);
@@ -101,4 +101,4 @@ class Main{
     }
 }
 
-module.exports = Main;
+export default Main;

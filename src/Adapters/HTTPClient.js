@@ -1,6 +1,6 @@
-const HTTP = require('http');
-const queryString = require('querystring');
-const ArcObject = require('arc-lib').object;
+import HTTP from 'http';
+import queryString from 'queryString';
+import {ArcObject} from 'arc-lib';
 
 /*
 NOTE: We do not test spaces that we do not own. Adapters are excluded from testing.
@@ -239,4 +239,4 @@ class HTTPClient{
     }
 }
 
-module.exports = HTTPClient;
+export default HTTPClient;

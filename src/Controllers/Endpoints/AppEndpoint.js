@@ -11,4 +11,4 @@ class AppEndpoint{
     }
 }
 
-module.exports = AppEndpoint;
+export default AppEndpoint;

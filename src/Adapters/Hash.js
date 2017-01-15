@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+import crypto from 'crypto';
 
 /*
  NOTE: We do not test spaces that we do not own. Adapters are excluded from testing.

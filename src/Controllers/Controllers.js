@@ -1,6 +1,6 @@
-const Router = require('express').Router;
-const AppEndpoint = require('./Endpoints/AppEndpoint')
-const AppServer = require('../UI/AppServer');
+import {Router} from 'express';
+import AppEndpoint from './Endpoints/AppEndpoint';
+import AppServer from '../UI/AppServer';
 
 /*
 An example of our top level controller. This controller is responsible for initializing and aggregating
@@ -27,4 +27,4 @@ class Controllers{
     }
 }
 
-module.exports = Controllers;
+export default Controllers;

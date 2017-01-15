@@ -1,5 +1,5 @@
 import MessagePerformer from '../../src/Store/MessagePerformer';
-const MessageModel = require('../../src/Models/MessageModel');
+import MessageModel from '../../src/Models/MessageModel';
 
 describe('Message Performer',()=>{
     it('should return MessagePerformer.toggleText',()=>{

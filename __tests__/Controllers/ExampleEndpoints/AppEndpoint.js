@@ -1,7 +1,7 @@
-const ResponseMock = require('../../../__mocks__/ResponseMock');
-const RequestMock = require('../../../__mocks__/RequestMock');
-const AppServer = require('../../../__mocks__/UI/AppServer');
-const AppEndpoint = require('../../../src/Controllers/Endpoints/AppEndpoint');
+import ResponseMock from '../../../__mocks__/ResponseMock';
+import RequestMock from '../../../__mocks__/RequestMock';
+import AppServer from '../../../__mocks__/UI/AppServer';
+import AppEndpoint from '../../../src/Controllers/Endpoints/AppEndpoint';
 
 describe('App Endpoint',()=>{
     var response,request,TestEndpoint,TestServer;

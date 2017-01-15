@@ -1,6 +1,6 @@
-const Controllers = require('../../src/Controllers/Controllers');
-const ExpressRouter = require('express').Router;
-const ArcObject = require('arc-lib').object;
+import Controllers from '../../src/Controllers/Controllers';
+import {Router} from 'express';
+import {object as ArcObject} from 'arc-lib';
 
 describe('Controllers Class',()=>{
     var TestControllers = new Controllers;
@@ -9,7 +9,7 @@ describe('Controllers Class',()=>{
     });
 
     it('should return an object that has the same API as express.Router',()=>{
-        var ExampleRouter = new ExpressRouter;
-        expect(ArcObject.duckInstanceOf(ExpressRouter,TestControllers.getRouter())).toBe(true);
+        var ExampleRouter = new Router;
+        expect(ArcObject.duckInstanceOf(ExampleRouter,TestControllers.getRouter())).toBe(true);
     });
 });

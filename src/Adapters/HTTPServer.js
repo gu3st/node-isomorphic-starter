@@ -1,7 +1,7 @@
-const HTTP = require('http');
-const HTTPS = require('https');
-const Express = require('express');
-const is = require('arc-lib').is;
+import HTTP from 'http';
+import HTTPS from 'https';
+import Express from 'express';
+import {is} from 'arc-lib';
 
 /*
  NOTE: We do not test spaces that we do not own. Adapters are excluded from testing.
@@ -91,4 +91,4 @@ class HTTPServer {
     }
 }
 
-module.exports = HTTPServer;
+export default HTTPServer;

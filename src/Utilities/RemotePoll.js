@@ -1,5 +1,5 @@
-const Hash = require('../Adapters/Hash');
-const ArcEvents = require('arc-lib').events;
+import Hash from '../Adapters/Hash';
+import {events as ArcEvents} from 'arc-lib';
 
 /*
 Utilities tend to be pure business logic that provide functionality via combined models/adapters or utilities.
@@ -110,4 +110,4 @@ class RemotePoll{
     }
 }
 
-module.exports = RemotePoll;
+export default RemotePoll;

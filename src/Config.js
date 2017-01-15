@@ -1,5 +1,4 @@
-/* I want a CLI override for these values */
-const fs = require('fs');
+import fs from 'fs';
 
 /*
  NOTE: We do not write tests against our config (though we could).
@@ -30,4 +29,4 @@ class Config{
     }
 }
 
-module.exports = Config;
+export default Config;

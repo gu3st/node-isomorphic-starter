@@ -1,4 +1,4 @@
-const MessageModel = require('../../src/Models/MessageModel');
+import MessageModel from '../../src/Models/MessageModel';
 
 describe('Message Model',()=>{
     var TestModel = new MessageModel;

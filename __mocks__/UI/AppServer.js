@@ -8,4 +8,4 @@ class AppServer{
     }
 }
 
-module.exports = AppServer;
+export default AppServer;

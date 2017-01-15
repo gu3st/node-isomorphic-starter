@@ -21,4 +21,5 @@ class RequestMock{
         this.body = undefined;
     }
 }
-module.exports = RequestMock;
+
+export default RequestMock;

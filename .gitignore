@@ -5,6 +5,6 @@ node_modules
 coverage
 *.log
 dist
-*.bundle.js
+*.map
 coverage
 certs/

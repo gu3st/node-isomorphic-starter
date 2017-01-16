@@ -93,4 +93,3 @@ This includes:
 * `react-router`
 * `client application interaction with dynamic data on the server side`
 * `socket.io` (though much like TLS this will be off by default)
-* update all `requires` to use `import/export` syntax

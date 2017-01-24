@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Box from './Components/Box';
+import Box from './Box';
 
 import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
 import {Provider,connect} from 'react-redux';
 import {createStore,combineReducers} from 'redux';
-import Reducer from '../../Store/Reducer';
+import Reducer from '../Store/Reducer';
 
 /*
 This is our application client. We set this as the Webpack Entry point, which makes it a non testable file that is analogous to our Main. There are a few extra considerations

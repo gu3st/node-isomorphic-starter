@@ -1,4 +1,4 @@
-const AppServer = require('../../src/UI/AppServer');
+const AppServer = require('../../src/Components/AppServer');
 const is = require('arc-lib').is;
 
 describe('AppServer',()=>{

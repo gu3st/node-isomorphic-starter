@@ -1,5 +1,5 @@
-import BoxStateManager from '../../../../src/UI/Components/Box/BoxStateManager';
-import connect from '../../../../__mocks__/connect';
+import BoxStateManager from '../../../src/Components/Box/BoxStateManager';
+import connect from '../../../__mocks__/connect';
 const is = require('arc-lib').is;
 
 describe('BoxStateManager',()=>{

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import Page from './Components/Page';
-import Box from './Components/Box';
+import Page from '../Components/Page';
+import Box from '../Components/Box';
 
 import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
 import {Provider,connect} from 'react-redux';

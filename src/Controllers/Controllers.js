@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import AppEndpoint from './Endpoints/AppEndpoint';
-import AppServer from '../UI/AppServer';
+import AppServer from '../Components/AppServer';
 
 /*
 An example of our top level controller. This controller is responsible for initializing and aggregating

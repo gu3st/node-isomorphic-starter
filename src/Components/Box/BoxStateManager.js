@@ -1,4 +1,4 @@
-import MessagePerformer from '../../../Store/MessagePerformer';
+import MessagePerformer from '../../Store/MessagePerformer';
 /*
     This is our Redux Container in a testable independant state. Redux containers are a state abstraction between the central store, and manipulating the property state.
     In this way they have 2 central purposes

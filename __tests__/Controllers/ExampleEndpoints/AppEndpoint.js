@@ -1,6 +1,6 @@
 import ResponseMock from '../../../__mocks__/ResponseMock';
 import RequestMock from '../../../__mocks__/RequestMock';
-import AppServer from '../../../__mocks__/UI/AppServer';
+import AppServer from '../../../__mocks__/Components/AppServer';
 import AppEndpoint from '../../../src/Controllers/Endpoints/AppEndpoint';
 
 describe('App Endpoint',()=>{

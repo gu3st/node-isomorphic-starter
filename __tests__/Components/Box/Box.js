@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '../../../../src/UI/Components/Box/Box';
+import Box from '../../../src/Components/Box/Box';
 import renderer from 'react-test-renderer';
 
 describe('Box Component',()=>{

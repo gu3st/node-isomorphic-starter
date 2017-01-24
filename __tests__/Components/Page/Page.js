@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from '../../../../src/UI/Components/Page';
+import Page from '../../../src/Components/Page';
 import renderer from 'react-test-renderer';
 
 describe('Page Component',()=>{

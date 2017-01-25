@@ -1,4 +1,4 @@
-import {is} from 'arc-lib';
+import { is } from 'arc-lib';
 
 class MessageModel{
     constructor(){
@@ -13,15 +13,15 @@ class MessageModel{
         this.data = _data;
     }
 
-    //Model Hydration
+    // Model Hydration
     flatten(){
         return {
-            data:this.data
+            data: this.data
         };
     }
 
     expand(_messageObj){
-        if(is(_messageObj) !== 'object'){
+        if (is(_messageObj) !== 'object'){
             return;
         }
         this.data = _messageObj.data;

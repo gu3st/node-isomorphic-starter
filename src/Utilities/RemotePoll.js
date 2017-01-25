@@ -1,5 +1,6 @@
+import { events as ArcEvents } from 'arc-lib';
+
 import Hash from '../Adapters/Hash';
-import {events as ArcEvents} from 'arc-lib';
 
 /*
 Utilities tend to be pure business logic that provide functionality via combined models/adapters or utilities.
@@ -16,12 +17,12 @@ class RemotePoll{
     }
 
     constructor(_HTTPClient){
-        //Our Client Adatper
+        // Our Client Adatper
         this.HTTPClient = _HTTPClient;
 
-        //Basic state
+        // Basic state
         this.status = RemotePoll.STATUS_STOPPED;
-        this.events = new ArcEvents;
+        this.events = new ArcEvents();
         this.consecutiveFailures = 0;
         this.totalFailures = 0;
         this.failureThreshold = 1;
@@ -29,7 +30,7 @@ class RemotePoll{
         this.pollingValue = undefined;
     }
 
-    //Get
+    // Get
     getInterval(){
         return this.interval;
     }
@@ -46,7 +47,7 @@ class RemotePoll{
         return this.failureThreshold;
     }
 
-    //Set
+    // Set
     setInterval(_interval){
         this.interval = _interval;
         return true;
@@ -61,11 +62,11 @@ class RemotePoll{
         this.failureThreshold = _threshold || 1;
     }
 
-    //Utilities
+    // Utilities
     start(){
         this._clearExistingPoll();
         this.status = RemotePoll.STATUS_ACTIVE;
-        this.pollId = setInterval(this._triggerPoll.bind(this),this.interval);
+        this.pollId = setInterval(this._triggerPoll.bind(this), this.interval);
         this._triggerPoll();
     }
 
@@ -74,29 +75,29 @@ class RemotePoll{
         this.status = RemotePoll.STATUS_STOPPED;
     }
 
-    on(_event,_listener){
-        this.events.on(_event,_listener);
+    on(_event, _listener){
+        this.events.on(_event, _listener);
     }
 
-    //Private
+    // Private
     _triggerPoll(){
-        var promise = (this.useETag ? this.HTTPClient.headRemote() : this.HTTPClient.getRemote());
-        promise.then(this._handleResponse.bind(this),this._handleNon200.bind(this));
+        const promise = (this.useETag ? this.HTTPClient.headRemote() : this.HTTPClient.getRemote());
+        promise.then(this._handleResponse.bind(this), this._handleNon200.bind(this));
     }
 
     _handleResponse(_response){
-        var [status,headers,body] = _response;
-        var checkVal = (this.useETag ? headers.etag : Hash.md5(body));
-        if(checkVal !== this.pollingValue){
+        const [status, headers, body] = _response;
+        const checkVal = (this.useETag ? headers.etag : Hash.md5(body));
+        if (checkVal !== this.pollingValue){
             this.pollingValue = checkVal;
             this.events.emit('change');
         }
     }
 
     _handleNon200(_response){
-        this.totalFailures++;
-        this.consecutiveFailures++;
-        if(this.consecutiveFailures >= this.failureThreshold){
+        this.totalFailures += 1;
+        this.consecutiveFailures += 1;
+        if (this.consecutiveFailures >= this.failureThreshold){
             this.consecutiveFailures = 0;
             this.stop();
             this.events.emit('error');
@@ -104,7 +105,7 @@ class RemotePoll{
     }
 
     _clearExistingPoll(){
-        if(this.pollId !== undefined){
+        if (this.pollId !== undefined){
             clearInterval(this.pollId);
         }
     }

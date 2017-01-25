@@ -1,5 +1,5 @@
-import BoxContainer from './BoxContainer'
+import { connect } from 'react-redux';
+import BoxContainer from './BoxContainer';
 import Box from './Box';
-import {connect} from 'react-redux';
 
-export default BoxContainer.connect(Box,connect);
+export default BoxContainer.connect(Box, connect);

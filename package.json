@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.bundle.js",
     "test": "jest --coverage",
+    "lint": "eslint src/",
     "build": "npm run build-client && npm run build-server",
     "build-client": "./node_modules/.bin/webpack -p --bail --config=\"webpack.clients.js\"",
     "build-server": "./node_modules/.bin/webpack -p --bail --config=\"webpack.server.js\"",
@@ -41,6 +42,11 @@
     "webpack": "^1.14.0"
   },
   "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^18.1.0",
     "react-test-renderer": "^15.4.1",

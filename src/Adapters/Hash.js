@@ -6,16 +6,17 @@ import crypto from 'crypto';
  */
 class Hash{
     static md5(_string){
-        var hmac = crypto.createHmac('md5','');
+        const hmac = crypto.createHmac('md5', '');
         hmac.update(_string);
         return hmac.digest('hex');
     }
 
-    static sha256(_string,_key){
-        var hmac = crypto.createHmac('sha256','');
+    static sha256(_string, _key){
+        const hmac = crypto.createHmac('sha256', '');
         hmac.update(_string);
         return hmac.digest('hex');
     }
 }
 
 module.exports = Hash;
+export default Hash;

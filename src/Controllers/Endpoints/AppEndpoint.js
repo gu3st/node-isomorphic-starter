@@ -6,7 +6,7 @@ class AppEndpoint{
         this.AppServer = _AppServer;
     }
 
-    loadPage(_request,_response){
+    loadPage(_request, _response){
         _response.status(200).send(this.AppServer.render());
     }
 }

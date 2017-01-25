@@ -23,9 +23,9 @@ class Config{
 
     static getTLSOptions(){
         return {
-            key:fs.readFileSync(TLS_PATH+'/certs/server.key'),
-            cert:fs.readFileSync(TLS_PATH+'/certs/server.crt')
-        }
+            key: fs.readFileSync(`${global.TLS_PATH}/certs/server.key`),
+            cert: fs.readFileSync(`${global.TLS_PATH}/certs/server.crt`)
+        };
     }
 }
 

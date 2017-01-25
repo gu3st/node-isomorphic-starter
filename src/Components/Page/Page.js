@@ -9,36 +9,62 @@ Having a Page as a component is nice, as it maintains coding sensibility and con
     -props.content is a react rendered output. This is the same content that is rendered by our AppClient and attached to the app-mount element
  */
 class Page extends React.Component{
-    constructor(props){
-        super(props);
-    }
-
     getAppData(){
         return JSON.stringify(this.props.app);
     }
 
     getInitData(){
         return `
-            window.app = `+this.getAppData()+`;
+            window.app = ${this.getAppData()};
         `;
     }
 
+    getInitScript(){
+        return {
+            type: "text/javascript",
+            dangerouslySetInnerHTML: {
+                __html: this.getInitData()
+            }
+        };
+    }
+
+    getAppMount(){
+        return {
+            id: "app-mount",
+            dangerouslySetInnerHTML: {
+                __html: this.props.content
+            }
+        };
+    }
+
     render(){
-        //We would not want to do this in the client bundle but as we're using React for the Page shell, this is safe
+        // We would not want to do this in the client bundle but as we're using React for the Page shell, this is safe
         return (
-            <html>
-                <head>
-                    <title>{this.props.title}</title>
-                    <link href="app/app.css" rel="stylesheet" type="text/css"/>
-                    <script type="text/javascript" dangerouslySetInnerHTML={{__html:this.getInitData()}}></script>
-                </head>
-                <body>
-                    <div id="app-mount" dangerouslySetInnerHTML={ {__html: this.props.content} }></div>
-                    <script src="/app/app.bundle.js"></script>
-                </body>
-            </html>
+          <html lang="en">
+            <head>
+              <title>{this.props.title}</title>
+              <link href="app/app.css" rel="stylesheet" type="text/css" />
+              <script {...this.getInitScript()} />
+            </head>
+            <body>
+              <div {...this.getAppMount()} />
+              <script src="/app/app.bundle.js" />
+            </body>
+          </html>
         );
     }
 }
+
+Page.defaultProps = {
+    app: {},
+    content: "",
+    title: ""
+};
+
+Page.propTypes = {
+    app: React.PropTypes.object,
+    content: React.PropTypes.string,
+    title: React.PropTypes.string
+};
 
 export default Page;

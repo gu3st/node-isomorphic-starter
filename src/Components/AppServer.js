@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { Provider, connect } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+
 import Page from '../Components/Page';
 import Box from '../Components/Box';
-
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
-import {Provider,connect} from 'react-redux';
-import {createStore,combineReducers} from 'redux';
 import Reducer from '../Store/Reducer';
 
 /*
@@ -20,24 +20,26 @@ Our AppServer can be seen as the isomorphic Page loader of our client applicatio
 
 class AppServer{
     constructor(){
-        //This assumes a persistent store for the entire app (every page is static regardless of user)!
+        // This assumes a persistent store for the entire app (every page is static regardless of user)!
         //  If we wanted individual user data, we would create a store out of a persistent remote session on render()
         this.AppStore = createStore(Reducer.combine(combineReducers));
     }
 
     getPageProperties(){
-        var App = <Provider store={this.AppStore}><Box/></Provider>;
+        const App = <Provider store={this.AppStore}><Box /></Provider>;
 
         return {
-            title:"Isomorphic Starter - Example",
-            content:ReactDOMServer.renderToString(App),
-            app:this.AppStore.getState()
+            title: "Isomorphic Starter - Example",
+            content: ReactDOMServer.renderToString(App),
+            app: this.AppStore.getState()
         };
     }
     
     render(){
-        return '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(<Page {...this.getPageProperties()} />);
+        return `<!DOCTYPE html>
+                ${ReactDOMServer.renderToStaticMarkup(<Page {...this.getPageProperties()} />)}`;
     }
 }
 
 module.exports = AppServer;
+export default AppServer;

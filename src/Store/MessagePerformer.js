@@ -11,8 +11,8 @@ class MessagePerformer{
 
     static checkAction(_actionType){
         switch (_actionType){
-        case MessagePerformer.ACTION_TOGGLE: return MessagePerformer.ACTION_TOGGLE.split(".")[1];
-        default: return false;
+            case MessagePerformer.ACTION_TOGGLE: return MessagePerformer.ACTION_TOGGLE.split(".")[1];
+            default: return false;
         }
     }
 

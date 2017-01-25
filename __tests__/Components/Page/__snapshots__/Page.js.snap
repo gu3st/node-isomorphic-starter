@@ -1,5 +1,6 @@
 exports[`Page Component should match the Page component snapshot 1`] = `
-<html>
+<html
+  lang="en">
   <head>
     <title>
       

@@ -10,8 +10,8 @@ describe('Message Performer',()=>{
         expect(MessagePerformer.checkAction(MessagePerformer.ACTION_TOGGLE)).toBe('toggleText');
     });
 
-    it('should accept a value, and if it does not match any available actions return undefined',()=>{
-        expect(MessagePerformer.checkAction('HI')).toEqual(undefined);
+    it('should accept a value, and if it does not match any available actions return false',()=>{
+        expect(MessagePerformer.checkAction('HI')).toEqual(false);
     });
 
     it('should accept a MessageModel and setData to Goodbye World if Hello World is currently set',()=>{

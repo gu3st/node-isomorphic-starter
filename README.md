@@ -39,27 +39,6 @@ This project utilizes jest, and its snapshot features for testing React componen
 This kit is more experimental and non-standard than the node-service-starter kit. Additionally it is more opinionated. The goal is to use OOP to introduce the complexities of isomorphic applications in a way that is easier to organize, as well as easier to understand for developers new to node/react/redux and isomorphic.
 
 In doing this though, there are some concepts, patterns and language that are experimental:
-###StateManagers vs Containers.
-In React/Redux the logic that wraps a Component, and handles updating the properties (so propagating to the UI) and handling an action that updates the data state (propagating) is called a **container** in current parlance.
-
-In my explorations though, when dealing with UI and markup developers tend to interpret containers as something that impacts the end result markup (even if it's not directly visible).
-
-For example:
-```html
-<div class="container">
-    <div class="component">
-       Stuff
-    </div>
-</div>
-```
-
-Of course, this isn't how React/Redux containers operate, which causes some unnecessary confusion on how they operate and what their purpose is.
-
-In this kit, we are calling them **StateManagers**.
-
-StateManagers === Containers.
-
-A StateManager is optional when loading a Component, but if included represents the business logic in charge of managing i/o around the component. So it can dispatch actions to the Redux store (think user interaction) and then can receive new state to propogate the property changes to the Component.
 
 ###Performers vs Action/Reducers
 In Redux specifically the concepts are very simple. The store maintains a state, action objects are dispatched to it which are passed into the reducer. Assuming a multi reducer state, each reducer needs to evaluate the action object and identify whether or not it should act on it. In the event that it is going to be acted on, business logic utilizing the current state, and the passed in action are used to create a new state (if required).
@@ -93,3 +72,12 @@ This includes:
 * `react-router`
 * `client application interaction with dynamic data on the server side`
 * `socket.io` (though much like TLS this will be off by default)
+
+##Changelog
+_2017-01-24_
+* Changed StateManager language to just be Container as expected
+
+_2017-01-23_
+* Removed UI folder as it was superflous
+* Moved Components to top level
+* Moved AppServer / AppClient into Components

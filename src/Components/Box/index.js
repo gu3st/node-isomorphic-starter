@@ -1,5 +1,5 @@
-import BoxStateManager from './BoxStateManager'
+import BoxContainer from './BoxContainer'
 import Box from './Box';
 import {connect} from 'react-redux';
 
-export default BoxStateManager.connect(Box,connect);
+export default BoxContainer.connect(Box,connect);

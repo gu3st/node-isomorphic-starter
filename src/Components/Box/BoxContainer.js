@@ -5,7 +5,7 @@ import MessagePerformer from '../../Store/MessagePerformer';
         1. update the state of the properties required for the React component
         2. accept actions from the React component, and trigger the reducer(s) process in which a reducer will accept the action type, and change the data state
  */
-class BoxStateManager{
+class BoxContainer{
     //Here we get our full redux state, and we return a new properties object (excluding dispatch functions) that will React will update the DOM with
     updatePropsState(_state){
         return {
@@ -31,9 +31,9 @@ class BoxStateManager{
     }
 
     static connect(_Component,_ReactReduxConnect){
-        var Manager = new BoxStateManager();
+        var Manager = new BoxContainer();
         return _ReactReduxConnect(Manager.updatePropsState.bind(Manager),Manager.dispatch.bind(Manager))(_Component);
     }
 }
 
-export default BoxStateManager;
+export default BoxContainer;
